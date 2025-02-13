@@ -7,15 +7,18 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color: #fff;
 }
 
 .fa-magnifying-glass {
   color: white;
+  font-size: 1.25rem;
 }
 
 .flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .header-center {
@@ -25,12 +28,13 @@ body {
 }
 
 .left-margin {
-  margin: 0px 16px;
+  margin: 0 16px;
 }
 
 #uv-error {
   color: #ff6666 !important;
   white-space: pre-wrap;
+  font-size: 14px;
 }
 
 #uv-error-code {
@@ -48,6 +52,7 @@ body {
   border-radius: 6px;
   padding: 16px 20px;
   line-height: 16px;
+  transition: background 0.3s ease;
   display: none;
 }
 
@@ -62,6 +67,11 @@ body {
 .logo {
   width: 150px;
   height: 150px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 .logo-wrapper .text {
@@ -71,6 +81,8 @@ body {
 
 .logo-wrapper h1 {
   color: white;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 footer {
@@ -89,6 +101,7 @@ footer span {
   text-decoration: none;
   color: #fff;
   font-size: 15px;
+  transition: color 0.3s ease;
 }
 
 footer a {
@@ -97,30 +110,78 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+  color: #ff9900;
 }
 
 .desc p {
   width: 560px;
   color: rgba(253, 253, 253, 0.514);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 #uv-address {
   background: none;
   font-family: inherit;
-  padding: 0px 17px;
+  padding: 0 17px;
   height: 48px;
-  border: 1px solid rgb(255, 255, 255, 0.2);
-  color: var(--text-color);
-  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 50px;
   outline: none;
   width: 350px;
   margin-top: 5px;
-  border-radius: 50px;
-  color: #fff;
-  transition: border-radius 0.1s;
+  transition: all 0.3s ease;
 }
 
 #uv-address:focus {
   border: 1px solid rgba(253, 253, 253, 0.514);
   border-radius: 6px;
+  background-color: #222;
+}
+
+#uv-address::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .header-center {
+    margin-top: 5%;
+  }
+
+  .logo-wrapper h1 {
+    font-size: 1.5rem;
+  }
+
+  footer a,
+  footer span {
+    font-size: 13px;
+  }
+
+  #uv-address {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-center {
+    margin-top: 3%;
+  }
+
+  .logo-wrapper h1 {
+    font-size: 1.2rem;
+  }
+
+  footer a,
+  footer span {
+    font-size: 12px;
+  }
+
+  .desc p {
+    width: 90%;
+  }
+
+  #uv-address {
+    width: 100%;
+  }
 }
