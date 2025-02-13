@@ -3,7 +3,7 @@
 # Changelog
 </div>
 
-### 9/2/2023
+### 02/13/2025
 - Removed Outdated warning.
 - added credits
 ### 8/28/2023
