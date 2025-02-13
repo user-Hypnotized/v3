@@ -1,25 +1,19 @@
-// const express = require('express');
-// const fs = require('fs');
-// const path = require('path');
-// const app = express();
-// const port = 3000;
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 3000;
 
-// app.use(express.json());
-// app.use(express.static('public')); // For serving static files like HTML, CSS, JS
+app.use(express.static('public')); // Serve static files
 
-// // Hardcoded password for validation
-// const correctPassword = 'duontop';
+// Serve the main app without login
+app.get('/', (req, res) => {
+  res.redirect('/app'); // Redirect users to the main app automatically
+});
 
-// // Login endpoint to verify the password
-// app.post('/login', (req, res) => {
-//   const password = req.body.password;
-//   if (password === correctPassword) {
-//     res.json({ success: true, message: 'Password correct' });
-//   } else {
-//     res.json({ success: false, message: 'Incorrect password' });
-//   }
-// });
+app.get('/app', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'app.html')); // Load the main app
+});
 
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
