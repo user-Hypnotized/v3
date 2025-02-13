@@ -50,25 +50,8 @@ app.get('/generate-password', (req, res) => {
   // Save the generated password associated with the user's IP (optional)
   savePasswordToFile(req.ip, password);
 
-  // Send the password to the client (you could also email it to yourself or store elsewhere)
+  // Send the password to the client as a response
   res.json({ password: password });
-});
-
-// Endpoint to validate the password
-app.post('/validate-password', (req, res) => {
-  const { ip, password } = req.body;
-
-  const filePath = path.join(__dirname, 'static', 'assets', 'js', 'passwords.json');
-  if (fs.existsSync(filePath)) {
-    const passwords = JSON.parse(fs.readFileSync(filePath));
-    const userPassword = passwords.find(p => p.ip === ip);
-
-    if (userPassword && userPassword.password === password) {
-      return res.json({ success: true });
-    }
-  }
-
-  res.json({ success: false, message: 'Incorrect password.' });
 });
 
 app.listen(port, () => {
