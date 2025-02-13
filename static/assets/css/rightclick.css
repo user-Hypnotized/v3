@@ -1,51 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 body {
-  font-family: mosk;
+  font-family: 'Mosk', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* Base Context Menu */
 .context-menu {
   display: none;
-  font-family: poppins;
   position: absolute;
-  background-color: #ffffff7e;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 8px;
-  border-radius: 8px;
-  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Define the context menu items */
+/* Menu Item */
 .context-menu-item {
+  font-family: 'Poppins', sans-serif;
+  padding: 12px;
+  color: #333;
   cursor: pointer;
-  font-family: poppins;
-  padding: 8px;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 
-/* Add a line after each context menu item */
-.context-menu-item:not(:last-child) {
-  border-bottom: 1px solid rgb(143, 143, 143)7e;
-}
-
-/* Hover effect on menu options */
+/* Hover Effect on Menu Items */
 .context-menu-item:hover {
-  background-color: rgb(146, 146, 146);
+  background-color: rgba(146, 146, 146, 0.2);
+  padding-left: 16px; /* Slide effect */
 }
 
+/* Remove the border for the last item */
+.context-menu-item:not(:last-child) {
+  border-bottom: 1px solid rgba(143, 143, 143, 0.3);
+}
+
+/* Context Submenu */
 .context-submenu {
   display: none;
   position: absolute;
   top: 0;
   left: 100%;
-  font-family: poppins;
-  min-width: 200px;
-  background-color: #ffffff7e;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+  min-width: 220px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 12px;
   z-index: 1;
+  transition: opacity 0.3s ease-in-out;
 }
+
+/* Smooth Hover Effect on Submenu Items */
+.context-submenu .context-menu-item:hover {
+  background-color: rgba(146, 146, 146, 0.3);
+  padding-left: 16px;
+}
+
+/* Submenu Separator */
 .submenu-separator {
-  border-bottom: 1px solid rgb(207, 207, 207)7e;
-  margin: 4px 0;
+  border-bottom: 1px solid rgba(207, 207, 207, 0.4);
+  margin: 6px 0;
+}
+
+/* Style for Context Menu Activation */
+.context-menu.show {
+  display: block;
+  opacity: 1;
+}
+
+.context-submenu.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Fade In/Out Animation */
+.context-menu.fade-in,
+.context-submenu.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+/* Animation for Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover Effect on Submenu Trigger */
+.context-menu-item .submenu-trigger {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 8px;
+  transition: transform 0.3s ease;
+}
+
+.context-menu-item .submenu-trigger:hover {
+  transform: rotate(90deg);
+}
+
+/* Optional icons for better UX (using font-awesome) */
+.context-menu-item i,
+.context-submenu .context-menu-item i {
+  margin-right: 8px;
+}
+
+/* Make menu more responsive */
+@media (max-width: 768px) {
+  .context-menu,
+  .context-submenu {
+    min-width: 180px;
+  }
 }
