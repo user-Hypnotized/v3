@@ -1,59 +1,14 @@
-/* <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #262626;
-      color: white;
-      text-align: center;
-      margin-top: 50px;
-    }
-    .button {
-      padding: 15px 25px;
-      background-color: #4c24ff;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background-color 0.3s;
-    }
-    .button:hover {
-      background-color: #2f00ff;
-    }
-    .password-display {
-      margin-top: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #00ff00;
-    }
-  </style>
+  <title>Redirecting...</title>
+  <script>
+    window.location.href = '/app'; // Redirect users immediately
+  </script>
 </head>
 <body>
-
-  <h1>Password Generator</h1>
-  <button class="button" onclick="generatePassword()">Generate Password</button>
-
-  <div id="passwordDisplay" class="password-display"></div>
-
-  <script>
-    // Function to generate and display the password
-    function generatePassword() {
-      fetch('/generate-password')
-        .then(response => response.json())
-        .then(data => {
-          const passwordDisplay = document.getElementById('passwordDisplay');
-          passwordDisplay.textContent = `Your generated password: ${data.password}`;
-        })
-        .catch(error => {
-          console.error('Error generating password:', error);
-        });
-    }
-  </script>
+  <p>If you are not redirected, <a href="/app">click here</a>.</p>
 </body>
 </html>
- */
