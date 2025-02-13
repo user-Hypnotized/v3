@@ -30,7 +30,9 @@ function generatePassword() {
 // Function to save password to a file with an associated IP address or identifier (optional)
 function savePasswordToFile(ip, password) {
   const passwordData = { ip, password };
-  const filePath = path.join(__dirname, 'passwords.json');
+  
+  // Path to store the passwords
+  const filePath = path.join(__dirname, 'static', 'assets', 'js', 'passwords.json');
 
   let passwords = [];
   if (fs.existsSync(filePath)) {
@@ -46,7 +48,6 @@ app.get('/generate-password', (req, res) => {
   const password = generatePassword();
 
   // Save the generated password associated with the user's IP (optional)
-  // Here we can pass the IP, but it’s optional since we are no longer using it for the password
   savePasswordToFile(req.ip, password);
 
   // Send the password to the client (you could also email it to yourself or store elsewhere)
@@ -57,7 +58,7 @@ app.get('/generate-password', (req, res) => {
 app.post('/validate-password', (req, res) => {
   const { ip, password } = req.body;
 
-  const filePath = path.join(__dirname, 'passwords.json');
+  const filePath = path.join(__dirname, 'static', 'assets', 'js', 'passwords.json');
   if (fs.existsSync(filePath)) {
     const passwords = JSON.parse(fs.readFileSync(filePath));
     const userPassword = passwords.find(p => p.ip === ip);
