@@ -67,6 +67,18 @@
       outline: none;
     }
 
+    .form-group input[type="password"] {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
     .form-group input[type="submit"] {
       padding: 12px 24px;
       background-color: #ff9800;
@@ -96,6 +108,19 @@
       box-shadow: 0 0 15px white;
     }
   </style>
+  <script>
+    function togglePassword() {
+      var passwordField = document.getElementById('password');
+      var toggleIcon = document.getElementById('togglePassword');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.textContent = '🙈';
+      } else {
+        passwordField.type = 'password';
+        toggleIcon.textContent = '👀';
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="login-container">
@@ -104,7 +129,10 @@
     <form>
       <div class="form-group">
         <label for="password">Wow Password</label>
-        <input type="password" id="password" name="password" required>
+        <div style="position: relative;">
+          <input type="password" id="password" name="password" required>
+          <span id="togglePassword" class="toggle-password" onclick="togglePassword()">👀</span>
+        </div>
       </div>
       <div class="form-group">
         <input type="submit" value="Much Login">
