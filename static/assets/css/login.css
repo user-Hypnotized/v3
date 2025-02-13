@@ -3,57 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Password Generator</title>
   <style>
-    /* Basic styles */
-    #error-message {
-      color: red;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #262626;
+      color: white;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .button {
+      padding: 15px 25px;
+      background-color: #4c24ff;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #2f00ff;
+    }
+    .password-display {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ff00;
     }
   </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <form id="login-form" onsubmit="return login()">
-    <input type="password" id="password" placeholder="Enter your password" required>
-    <button type="submit">Login</button>
-    <p id="error-message"></p>
-  </form>
+
+  <h1>Password Generator</h1>
+  <button class="button" onclick="generatePassword()">Generate Password</button>
+
+  <div id="passwordDisplay" class="password-display"></div>
 
   <script>
-    function login() {
-      var password = document.getElementById("password").value;
-      var errorMessage = document.getElementById("error-message");
-
-      // Send password to server to validate
-      fetch('/validate-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ip: window.location.hostname,  // In a real-world scenario, this would be server-side
-          password: password
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          location.href = '/app';  // Redirect to the app
-        } else {
-          errorMessage.textContent = data.message;  // Show error message
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        errorMessage.textContent = 'An error occurred. Please try again.';
-      });
-
-      return false; // Prevent form submission
-    }
-
-    // Generate and display the password for testing (just for your reference)
-    window.onload = function() {
+    // Function to generate and display the password
+    function generatePassword() {
       fetch('/generate-password')
         .then(response => response.json())
-        .then(data => console.log('Generated password:', data.password));
+        .then(data => {
+          const passwordDisplay = document.getElementById('passwordDisplay');
+          passwordDisplay.textContent = `Your generated password: ${data.password}`;
+        })
+        .catch(error => {
+          console.error('Error generating password:', error);
+        });
     }
   </script>
 </body>
