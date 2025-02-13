@@ -15,6 +15,46 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="/assets/js/rightclick.js"></script>
     <script src="/assets/js/cloakcheck.js"></script>
+    
+    <style>
+        .credits-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        .credits-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+        }
+        .credits-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        .credits-container li {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .credits-container li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        .credits-container a {
+            color: #3d7eff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .credits-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="bg">
@@ -45,10 +85,10 @@
         </a>
     </nav>
 
-    <div class="centered">
-        <h1 style="font-family:poppins;">Credits</h1>
+    <div class="credits-container">
+        <h1>Credits</h1>
         <p>Developers:</p>
-        <ul style="text-align: left;">
+        <ul>
             <li><a href="https://github.com/user-Hypnotized">user-Hypnotized (Owner)</a></li>
             <li><a href="https://github.com/Russell2259">Russell2259</a></li>
         </ul>
