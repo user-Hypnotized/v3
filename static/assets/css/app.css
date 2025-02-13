@@ -1,56 +1,88 @@
 @font-face {
-  font-family: 'mosk';
-  src: url('/assets/fonts/mosk.ttf');
+  font-family: mosk;
+  src: url(/assets/fonts/mosk.ttf);
 }
 
 @font-face {
-  font-family: 'poppins';
-  src: url('/assets/fonts/poppins.ttf');
+  font-family: poppins;
+  src: url(/assets/fonts/poppins.ttf);
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
+.button-6 {
+  align-items: right;
+  border: none;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  font-family: poppins;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 1.25;
+  margin: -5px;
+  min-height: 3rem;
+  margin-left: 10px;
+  padding: 0px 10px;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 }
 
-body,
-html {
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
+
+
+.button-6:hover {
+  border: transparent 2px rgba(255, 255, 255, 0.596);
+  background-color: rgba(255, 255, 255, 0.411);
+  border-radius: 5px;
+  padding: 0px 10px;
+  transition: 0.3s;
 }
 
-.bg {
-  background-image: url('/assets/img/background.png');
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+.button-6:active {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+  border-radius: 5px;
 }
 
 nav {
-  padding: 12px;
-  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  background-color: transparent;
   overflow: hidden;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
-nav a,
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
 nav p {
-  color: white;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  margin: 8px;
-  display: inline-block;
+  font-family: poppins;
 }
 
 nav a {
   float: right;
+  text-align: center;
+  text-decoration: none;
+  margin: 8px;
+  font-family: poppins;
 }
 
 nav .icon {
@@ -58,81 +90,51 @@ nav .icon {
   color: red;
 }
 
-nav.responsive a {
-  display: block;
-  text-align: left;
-  width: 100%;
-}
-
 input {
   border: none;
-  padding: 16px 20px;
+  padding: 20px;
   width: 520px;
-  background-color: #222;
+  background-color: black;
   color: white;
-  border-radius: 30px;
+  outline: none;
+  font-family: poppins;
   font-size: 15px;
   text-align: center;
-  opacity: 0.7;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  transition: 0.1s;
+  opacity: 70%;
 }
 
-input:hover,
+input:hover {
+  width: 700px;
+}
+
 input:focus {
   width: 700px;
-  opacity: 1;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 input:active {
   width: 720px;
 }
 
-.button-6 {
-  align-items: center;
-  border: none;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0 20px;
-  margin: 8px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  user-select: none;
+
+nav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
 }
 
-.button-6:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  transform: translateY(-2px);
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.button-6:active {
-  background-color: white;
-  color: rgba(0, 0, 0, 0.7);
-  transform: translateY(1px);
-}
 
 h1 {
-  font-family: 'mosk', sans-serif;
-  font-size: 80px;
-  color: white;
-  text-align: center;
-  margin: 20px 0;
+  font-size: 45.5px;
 }
 
 .header {
-  font-family: 'mosk', sans-serif;
-  font-size: 30px;
+  font-family: mosk;
+  font-size: 25px;
   color: white;
-  text-align: left;
-  margin: 20px;
+  margin-left: 20px;
+  margin-top: 2px;
 }
 
 .rounded {
@@ -145,14 +147,13 @@ h1 {
 #card4 {
   outline: 3.5px solid #004be0;
   text-align: center;
-  width: 22%;
-  height: 200px;
-  background-color: #222;
+  float: center;
+  width: 5.5%;
+  height: 150px;
   color: white;
-  padding: 3rem;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  padding: 4.5rem;
+  border-radius: 5.5px;
+  transition: 0.5s;
 }
 
 #card1:hover,
@@ -160,143 +161,105 @@ h1 {
 #card3:hover,
 #card4:hover {
   background-color: #004be0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 #featured {
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 45.5px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.footer {
-  text-align: center;
-  font-size: 16px;
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('/assets/img/background.png');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+p {
+  font-family: poppins;
   color: white;
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
-.footer a {
+a {
+  font-family: poppins;
   color: white;
-  font-size: 18px;
-  text-decoration: none;
-  transition: 0.3s;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
-.footer a:hover {
-  color: rgba(255, 255, 255, 0.7);
+.searchbar {
+  height: 10px;
+  width: 500px;
+}
+
+.searchbar:hover {
+  width:700px;
+}
+
+
+@font-face {
+  font-family: 'mosk';
+  src: url('/assets/fonts/mosk.ttf');
 }
 
 .centered {
+  color: #fff;
+  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
 }
 
-.searchbar {
-  width: 500px;
-  height: 40px;
-  border-radius: 20px;
-  padding: 10px;
+h1 {
+  font-size: 100px;
+  margin: 10px;
+}
+
+.footer {
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  font-size: 16px;
+  background-attachment: fixed;
+}
+
+
+.footer>a {
+  text-decoration: none;
   font-size: 18px;
-  transition: width 0.3s ease;
-  border: 2px solid #222;
-  margin: 20px auto;
-  display: block;
+  transition: 0.4s;
 }
 
-.searchbar:hover {
-  width: 700px;
+.footer>a:hover {
+  color: rgba(255, 255, 255, 0.466);
+  transition: 0.2s;
 }
-
-nav p {
-  font-family: 'Poppins', sans-serif;
-  color: white;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-
-@media (max-width: 768px) {
-  .searchbar {
-    width: 90%;
-  }
-
-  h1 {
-    font-size: 60px;
-  }
-
-  .button-6 {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  #featured {
-    flex-direction: column;
-  }
-
-  nav a {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 50px;
-  }
-
-  .button-6 {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-
-  input {
-    width: 90%;
-  }
-
-  #featured {
-    flex-direction: column;
-  }
-
-  .footer a {
-    font-size: 14px;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.card {
-  animation: slideIn 0.5s ease-out;
-}
-
