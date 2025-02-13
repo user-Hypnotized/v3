@@ -4,8 +4,8 @@
 </div>
 
 ### 9/2/2023
-- Added Chess (By Mecharis)
-- Added Subway Surfers (By Mecharis)
+- Removed Outdated warning.
+- added credits
 ### 8/28/2023
 - Changed UV Prefix to `/students/lesson`
 ### 8/27/2023
