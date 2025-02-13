@@ -24,80 +24,26 @@
     });
   </script>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #2b5876, #4e4376);
-      color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    nav {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav button {
-      background: #ffcc00;
-      color: black;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 20px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav button:hover {
-      background: #ffaa00;
-    }
     input {
-      border-radius: 25px;
-      padding: 10px;
-      width: 50%;
-      border: none;
-      font-size: 18px;
-      text-align: center;
-      margin-top: 20px;
-      outline: none;
-      transition: all 0.3s ease-in-out;
+      border-radius: 15px;
+      transition: 0.4s;
     }
-    input:focus {
-      width: 60%;
-      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
-    }
-    .footer {
-      margin-top: 50px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-    .footer a {
-      color: #ffcc00;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .footer a:hover {
-      text-decoration: underline;
+    input:active {
+      width: 690px;
     }
   </style>
 </head>
-<body>
-  <nav>
-    <p style="font-size:25px;"><img src="/assets/img/doge.jpg" style="width:30px;height:30px;"> Doge Unblocker</p>
-    <div>
-      <a href="/gms/"><button>Games</button></a>
-      <a href="/apps/"><button>Apps</button></a>
-      <a href="/app"><button>Home</button></a>
-    </div>
+<body class="bg">
+  <nav id="mytopnav">
+    <a href="/gms/"><button class="button-6">Games</button></a>
+    <a href="/apps/"><button class="button-6">Apps</button></a>
+    <a href="/app"><button class="button-6">Home</button></a>
+    <p style="font-size:25px;"><img src="/assets/img/doge.jpg" style="width:22px;height:22px;"> Doge Unblocker</p>
   </nav>
   
-  <div>
+  <div style="text-align: center; color: white; margin:80px;">
     <form id="searchbar">
-      <input type="text" name="url" id="search-input" placeholder="Type URL or search query">
+      <input type="text" name="url" class="form__input" id="search-input" placeholder="Type URL or search query">
       <p style="font-size:14px;">Right-Click to access more features</p>
     </form>
   </div>
