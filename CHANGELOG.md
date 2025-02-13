@@ -7,6 +7,7 @@
 - Removed Outdated warning.
 - better looking 404 page
 - added credits
+- made the right click window more visually appealing
 ### 8/28/2023
 - Changed UV Prefix to `/students/lesson`
 ### 8/27/2023
