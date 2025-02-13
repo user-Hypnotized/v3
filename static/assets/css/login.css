@@ -1,145 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/assets/img/doge.jpg">
-  <title>Much Secure Login | Doge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
   <style>
-    @keyframes moveBackground {
-      0% { background-position: 0 0; }
-      100% { background-position: 100% 100%; }
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: url('/assets/img/doge-pattern.png'), linear-gradient(135deg, #f1e5b3, #e2a94f);
-      background-size: 150px 150px, 400% 400%;
-      animation: moveBackground 15s infinite alternate linear;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #222;
-      text-align: center;
-    }
-
-    .login-container {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      border: 5px solid #f1e5b3;
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .login-container h2 {
-      margin-top: 0;
-      color: #3e3e3e;
-      text-shadow: 1px 1px 2px #fff;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #555;
-    }
-
-    .form-group input {
-      padding: 12px;
-      width: 96%;
-      border-radius: 8px;
-      border: 2px solid #f1e5b3;
-      transition: border-color 0.3s ease;
-      font-size: 16px;
-      background-color: #fafafa;
-    }
-
-    .form-group input:focus {
-      border-color: #e2a94f;
-      outline: none;
-    }
-
-    .form-group input[type="password"] {
-      position: relative;
-    }
-
-    .toggle-password {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      color: #555;
-    }
-
-    .form-group input[type="submit"] {
-      padding: 12px 24px;
-      background-color: #e2a94f;
-      border: none;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, transform 0.2s;
-    }
-
-    .form-group input[type="submit"]:hover {
-      background-color: #d89a3a;
-      transform: scale(1.05);
-    }
-
-    .error-message {
+    /* Basic styles */
+    #error-message {
       color: red;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .doge-img {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
   </style>
-  <script>
-    function togglePassword() {
-      var passwordField = document.getElementById('password');
-      var toggleIcon = document.getElementById('togglePassword');
-      if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        toggleIcon.textContent = '🙈';
-      } else {
-        passwordField.type = 'password';
-        toggleIcon.textContent = '👀';
-      }
-    }
-  </script>
 </head>
 <body>
-  <div class="login-container">
-    <img src="/assets/img/doge.jpg" alt="Doge" class="doge-img">
-    <h2>Such Login. Very Secure.</h2>
-    <form>
-      <div class="form-group">
-        <label for="password">Wow Password</label>
-        <div style="position: relative;">
-          <input type="password" id="password" name="password" required>
-          <span id="togglePassword" class="toggle-password" onclick="togglePassword()">👀</span>
-        </div>
-      </div>
-      <div class="form-group">
-        <input type="submit" value="Much Login">
-      </div>
-    </form>
-  </div>
+  <h2>Login</h2>
+  <form id="login-form" onsubmit="return login()">
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <button type="submit">Login</button>
+    <p id="error-message"></p>
+  </form>
+
+  <script>
+    function login() {
+      var password = document.getElementById("password").value;
+      var errorMessage = document.getElementById("error-message");
+
+      // Send password to server to validate
+      fetch('/validate-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ip: window.location.hostname,  // In a real-world scenario, this would be server-side
+          password: password
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          location.href = '/app';  // Redirect to the app
+        } else {
+          errorMessage.textContent = data.message;  // Show error message
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        errorMessage.textContent = 'An error occurred. Please try again.';
+      });
+
+      return false; // Prevent form submission
+    }
+
+    // Generate and display the password for testing (just for your reference)
+    window.onload = function() {
+      fetch('/generate-password')
+        .then(response => response.json())
+        .then(data => console.log('Generated password:', data.password));
+    }
+  </script>
 </body>
 </html>
