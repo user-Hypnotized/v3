@@ -9,7 +9,7 @@
       0% { background-position: 0 0; }
       100% { background-position: 100% 100%; }
     }
-    
+
     body {
       margin: 0;
       padding: 0;
@@ -17,29 +17,29 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background: url('/assets/img/doge-pattern.png'), linear-gradient(135deg, #ffcc00, #ff5733);
+      background: url('/assets/img/doge-pattern.png'), linear-gradient(135deg, #f1e5b3, #e2a94f);
       background-size: 150px 150px, 400% 400%;
-      animation: moveBackground 10s infinite alternate linear;
+      animation: moveBackground 15s infinite alternate linear;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: white;
+      color: #222;
       text-align: center;
     }
 
     .login-container {
-      background: rgba(255, 215, 0, 0.9);
+      background: rgba(255, 255, 255, 0.8);
       padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(10px);
-      border: 5px solid #ffcc00;
+      border: 5px solid #f1e5b3;
       max-width: 400px;
       width: 100%;
     }
 
     .login-container h2 {
       margin-top: 0;
-      color: #333;
-      text-shadow: 2px 2px 0px #fff;
+      color: #3e3e3e;
+      text-shadow: 1px 1px 2px #fff;
     }
 
     .form-group {
@@ -57,13 +57,14 @@
       padding: 12px;
       width: 96%;
       border-radius: 8px;
-      border: 2px solid #ffcc00;
+      border: 2px solid #f1e5b3;
       transition: border-color 0.3s ease;
       font-size: 16px;
+      background-color: #fafafa;
     }
 
     .form-group input:focus {
-      border-color: #ff9800;
+      border-color: #e2a94f;
       outline: none;
     }
 
@@ -77,11 +78,12 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
+      color: #555;
     }
 
     .form-group input[type="submit"] {
       padding: 12px 24px;
-      background-color: #ff9800;
+      background-color: #e2a94f;
       border: none;
       color: white;
       font-weight: bold;
@@ -91,7 +93,7 @@
     }
 
     .form-group input[type="submit"]:hover {
-      background-color: #e68900;
+      background-color: #d89a3a;
       transform: scale(1.05);
     }
 
@@ -105,7 +107,7 @@
       width: 100px;
       border-radius: 50%;
       margin-bottom: 10px;
-      box-shadow: 0 0 15px white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     }
   </style>
   <script>
