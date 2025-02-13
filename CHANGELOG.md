@@ -5,6 +5,7 @@
 
 ### 02/13/2025
 - Removed Outdated warning.
+- better looking 404 page
 - added credits
 ### 8/28/2023
 - Changed UV Prefix to `/students/lesson`
