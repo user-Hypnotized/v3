@@ -6,29 +6,31 @@
   <meta name="title" content="Doge Unblocker">
   <meta name="description" content="Doge Unblocker is a lightning-fast proxy service built for school. Our services are fast, reliable, and completely free.">
   <meta name="keywords" content="unblocker, proxy, school, bypass, ultraviolet, discord unblocked, nodejs, github">
+  <meta name="author" content="Doge Unblocker Team">
   <link rel="icon" href="/assets/img/doge.jpg">
   <link rel="stylesheet" href="/assets/css/app.css">
   <link rel="stylesheet" href="/assets/css/rightclick.css">
   <link href="https://unpkg.com/movement.css/movement.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/323255fd4e.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://kit.fontawesome.com/323255fd4e.js" crossorigin="anonymous" defer></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js" defer></script>
+  
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const storedTitle = localStorage.getItem("tabTitle") || "Home | Doge";
-      document.title = storedTitle;
-      
+      document.title = localStorage.getItem("tabTitle") || "Home | Doge";
+
       if (localStorage.getItem("login") === "enablelogin" && localStorage.getItem("pass") !== "correct") {
-        console.log("Unauthorized access detected. Redirecting...");
+        console.warn("Unauthorized access detected. Redirecting...");
         window.location.href = "/";
       }
     });
   </script>
+
   <style>
     input {
       border-radius: 15px;
-      transition: 0.4s;
+      transition: 0.4s ease-in-out;
     }
-    input:active {
+    input:focus {
       width: 690px;
     }
   </style>
@@ -38,21 +40,23 @@
     <a href="/gms/"><button class="button-6">Games</button></a>
     <a href="/apps/"><button class="button-6">Apps</button></a>
     <a href="/app"><button class="button-6">Home</button></a>
-    <p style="font-size:25px;"><img src="/assets/img/doge.jpg" style="width:22px;height:22px;"> Doge Unblocker</p>
+    <p style="font-size: 25px;">
+      <img src="/assets/img/doge.jpg" style="width: 22px; height: 22px;"> Doge Unblocker
+    </p>
   </nav>
   
-  <div style="text-align: center; color: white; margin:80px;">
+  <div style="text-align: center; color: white; margin: 80px;">
     <form id="searchbar">
       <input type="text" name="url" class="form__input" id="search-input" placeholder="Type URL or search query">
-      <p style="font-size:14px;">Right-Click to access more features</p>
+      <p style="font-size: 14px;">Right-Click to access more features</p>
     </form>
   </div>
   
-  <div class="footer">
+  <footer class="footer">
     <a href="/credits">Credits</a>
     <a href="https://discord.gg/sWPHCdxCPU" target="_blank">Discord</a>
-  </div>
-  
+  </footer>
+
   <script>
     document.getElementById("search-input").addEventListener("focus", () => {
       const placeholders = [
@@ -63,11 +67,11 @@
       document.getElementById("search-input").placeholder = placeholders[Math.floor(Math.random() * placeholders.length)];
     });
   </script>
-  
-  <script src="/assets/js/rightclick.js"></script>
-  <script src="/assets/js/cloakcheck.js"></script>
-  <script src="/assets/js/mobile.js"></script>
-  <script src="/uv/uv.bundle.js"></script>
-  <script src="/uv/uv.config.js"></script>
+
+  <script src="/assets/js/rightclick.js" defer></script>
+  <script src="/assets/js/cloakcheck.js" defer></script>
+  <script src="/assets/js/mobile.js" defer></script>
+  <script src="/uv/uv.bundle.js" defer></script>
+  <script src="/uv/uv.config.js" defer></script>
 </body>
 </html>
